@@ -346,7 +346,7 @@ Player.prototype.moveY = function(step, level, keys) {
       this.speed.y = -jumpSpeed;
     else
       this.speed.y = 0;
-  } else if (obstacle == "floater") {
+  } else if (obstacle == "lava") {
     console.log("You die!!!")
     this.pos = new Vector(10, 10);
   } else {
@@ -381,10 +381,8 @@ Level.prototype.playerTouched = function(type, actor) {
     })) {
       this.status = "won";
       this.finishDelay = 1;
-	  jumpSpeed = 17;
     }
   } else if (type == 'portal') {
-	  jumpSpeed = 37;
     this.actors = this.actors.filter(function(other) {
       return other != actor;
     })
